@@ -13,6 +13,10 @@ class Astronaut
         @@all
     end
 
+    def shuttles
+        missions.map {|mission| mission.shuttle}.uniq
+    end
+
     def missions
         Mission.all.select {|mission| mission.astronauts.find{|astronaut| astronaut ==self}}
     end
